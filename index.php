@@ -4,7 +4,7 @@
  * Plugin Name:       napsv Features
  * Plugin URI:        napsvbible.com
  * Description:       Custom Scripture post type with advanced capabilities
- * Version:           1.0.0
+ * Version:           2.0.0
  * Author:            napsv
  * Author URI:        napsvbible.com
  * License:           GPL-2.0+
