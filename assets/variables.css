@@ -267,6 +267,12 @@
 
 /* SLIDING PANEL */
 
+@media all and (min-width:768px){
+  .home-sliding-panel{
+    display: none;
+  }
+}
+
 .home-sliding-panel{
   position: fixed;
   bottom: 50px;
@@ -343,9 +349,7 @@
 
 .home-sliding-panel .sliding-panel-content{
   background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  padding: 40px 30px;
-
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;  padding: 40px 30px;
   border-top-left-radius:5px;
 }
 
