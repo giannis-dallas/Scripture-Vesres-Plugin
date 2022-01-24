@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
 	
     // Smooth scroll inner links to section
-	$(document).on('click', '.inner-buttons a[href^="#"]', function (event) {
+	$(document).on('click', '.inner-buttons a[href^="#"], .home-sliding-panel a[href^="#"]', function (event) {
 		event.preventDefault();
 
 		$('html, body').animate({
@@ -12,37 +12,17 @@ jQuery(document).ready(function ($) {
     // Toggle Variables bar
     $('.variables-bar-toggle a').on('click',function (e) {
         e.preventDefault();
-        console.log('click');
         var isRetracted = $('.variables-bar').hasClass('retracted');
         isRetracted ? $('.variables-bar').removeClass('retracted'): $('.variables-bar').addClass('retracted')
-    })
+    });
+
+    // Toggle panel
+    $('.home-sliding-panel .sliding-panel-handle').on('click',function (e) {
+        e.preventDefault();
+        $('.home-sliding-panel').toggleClass('slided-in')
+    });
 
 if ($('body').hasClass('single-scripture')){
-
-    // var isWedding = $('#main>article').hasClass('category-wedding')
-    // var hasGneder = $('#main>article').hasClass('category-pronoun')
-    
-    // var theGroom = urlParams.get('bride');
-    // var theBride = urlParams.get('groom');
-        
-    // if (!theName && !isWedding){
-    //     scripture_Promt();
-    // }
-    // if (!theBride && isWedding){
-    //     bride_scripture_Promt();
-    // }
-    // if (!theGroom && isWedding){
-    //     groom_scripture_Promt();
-    // }
-    // if (!theGender && hasGneder){
-    //     gender_scripture_Promt();
-    // }
-
-    // $('.blessed-bride-name').html('<strong>'+theBride+'</strong>');
-    // $('.blessed-groom-name').html('<strong>'+theGroom+'</strong>');
-
-    // get parameters from URL and update the values accordingly
-    // if not params set the defaults
 
     var urlParams = new URLSearchParams(window.location.search);
 
@@ -112,44 +92,5 @@ function updateGender(theGender){
         $('.gender-them').html('him');
     }
 }
-
-// function scripture_Promt() {
-
-//     let person = prompt("Please enter your name:", "");
-//     if (person == null || person == "") {
-//         theName = "Loved One"
-//     } else {
-//       theName = person
-//     }    
-// }
-// function bride_scripture_Promt() {
-
-//     let bride = prompt("Please enter the Bride's name:", "");
-//     if (bride == null || bride == "") {
-//         theBride = "the Bride"
-//     } else {
-//       theBride = bride
-//     }    
-// }
-
-// function groom_scripture_Promt() {
-
-//     let groom = prompt("Please enter the Groom's name:", "");
-//     if (groom == null || groom == "") {
-//         theGroom = "the Groom"
-//     } else {
-//       theGroom = groom
-//     }    
-
-// }
-// function gender_scripture_Promt() {
-
-//     let gender = prompt("Please enter 'he' or 'she' for the prayer's use, as appropriate.", "");
-//     if (gender == null || gender == "") {
-//         theGender = "they"
-//     } else {
-//       theGender = gender
-//     }    
-// }
 
 });

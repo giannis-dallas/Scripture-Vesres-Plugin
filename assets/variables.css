@@ -263,3 +263,103 @@
       transform: rotate(360deg);
     }
   }
+
+
+/* SLIDING PANEL */
+
+.home-sliding-panel{
+  position: fixed;
+  bottom: 50px;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transform: translate3d(100%,0,0);
+  -webkit-transform: translate3d(100%,0,0);
+}
+.home-sliding-panel.slided-in{
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+}
+
+.home-sliding-panel .sliding-panel-handle{
+  position: absolute;
+  bottom:0;
+  left: 0;
+  background: #005f6a;
+  transform: translate3d(-100%,0,0);
+  -webkit-transform: translate3d(-100%,0,0);
+
+  width: 40px;
+  padding: 15px 10px 50px 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  letter-spacing: 1.5px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-sliding-panel .sliding-panel-handle .open,
+.home-sliding-panel .sliding-panel-handle .close{
+  position: absolute;
+  bottom: 0;
+  right:0px;
+  background: #005f6a;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-bottom-left-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+
+.home-sliding-panel .sliding-panel-handle .close{
+  display: none;
+}
+
+.home-sliding-panel.slided-in .sliding-panel-handle .open{
+  display: none;
+}
+.home-sliding-panel.slided-in .sliding-panel-handle .close{
+  display: flex;
+}
+
+.home-sliding-panel .sliding-panel-handle .close svg,
+.home-sliding-panel .sliding-panel-handle .open svg{
+  fill: #fff;
+}
+
+.home-sliding-panel .sliding-panel-content{
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding: 40px 30px;
+
+  border-top-left-radius:5px;
+}
+
+.home-sliding-panel .wp-block-buttons{
+  flex-direction: column;
+}
+
+.home-sliding-panel .wp-block-button{
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.home-sliding-panel .wp-block-buttons a{
+  display: block;
+  font-size: 15px;
+}

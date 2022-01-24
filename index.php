@@ -124,9 +124,46 @@ function napsv_sidebars() {
             'after_title'   => '</h3>',
         )
     );
+    register_sidebar(
+        array(
+            'id'            => 'sliding-panel',
+            'name'          => __( 'Sliding Panel' ),
+            'description'   => __( 'Content of sliding panel' ),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        )
+    );
 }
 
 // Scripture Astra hooks
+
+add_action( 'astra_footer_before', 'home_page_panel' );
+function home_page_panel() {
+	
+	if( is_front_page() ){
+		?>
+		<div class="home-sliding-panel">
+			<div class="sliding-panel-handle">
+			<a href="#" class="close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/></svg>
+			</a>	
+			<a href="#" class="open">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/></svg>
+			</a>	
+				Categories
+			</div>
+			<div class="sliding-panel-content">
+				<?php if ( is_active_sidebar( 'sliding-panel' ) ) : ?>
+					<?php dynamic_sidebar( 'sliding-panel' ); ?>
+				<?php endif; ?>
+			</div>
+
+		</div>
+		<?php
+	}
+}
 
 add_action( 'astra_entry_after','after_scripture' );
 function after_scripture () { 
